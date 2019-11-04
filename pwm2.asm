@@ -59,10 +59,12 @@ exit:
 	
 ; bl = timer divider
 change_timer_0:
+	cli
 	mov al, 16h
 	out 43h, al
 	mov al, bl
 	out 40h, al
+	sti
 	ret
 	
 sound_index dw 0

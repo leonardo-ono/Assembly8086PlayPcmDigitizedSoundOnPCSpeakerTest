@@ -118,10 +118,12 @@ _wait:
 ; bl = 0 -> restore original 18.2Hz timer 0
 ;      1 -> change timer 0 to 1193180Hz
 change_timer_0:
+	cli
 	mov al, 16h
 	out 43h, al
 	mov al, bl
 	out 40h, al
+	sti
 	ret
 	
 
